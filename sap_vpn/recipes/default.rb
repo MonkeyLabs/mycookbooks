@@ -23,9 +23,7 @@ package vpnc-scripts
 
 execute "sleep 5"
 
-service "vpnc" do
-  action :restart
-end
+execute "start vpnc"
 
 ruby_block "insert_line_1" do
   block do

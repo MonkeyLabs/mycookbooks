@@ -17,10 +17,6 @@ cookbook_file "/etc/init/vpnc.conf" do
   mode "0644"
 end
 
-package vpnc
-
-package vpnc-scripts
-
 execute "sleep 5"
 
 execute "start vpnc"

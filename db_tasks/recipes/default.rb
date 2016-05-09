@@ -40,3 +40,11 @@ bash 'run_seed' do
     EOH
 end
 
+bash 'run_seed' do
+  cwd '/srv/www/granbazar/current'
+  code <<-EOH
+    bundle exec rake assets:precompile
+    echo finish
+    EOH
+end
+

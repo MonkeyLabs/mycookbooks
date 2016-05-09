@@ -27,6 +27,7 @@ bash 'run_migrate' do
   cwd '/srv/www/granbazar/current'
   code <<-EOH
     bundle exec rake db:migrate
+    echo finish
     EOH
 end
 
@@ -35,6 +36,7 @@ bash 'run_seed' do
   cwd '/srv/www/granbazar/current'
   code <<-EOH
     bundle exec rake db:seed
+    echo finish
     EOH
 end
 

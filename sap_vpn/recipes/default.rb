@@ -17,9 +17,7 @@ cookbook_file "/etc/init/vpnc.conf" do
   mode "0644"
 end
 
-execute "sleep 5"
 
-execute "start vpnc"
 
 ruby_block "insert_line_1" do
   block do
@@ -36,3 +34,7 @@ ruby_block "insert_line_2" do
     file.write_file
   end
 end
+
+execute "sleep 5"
+
+execute "start vpnc"

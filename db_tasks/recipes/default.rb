@@ -10,7 +10,7 @@
 bash 'run_migrate' do
   cwd '/srv/www/granbazar/current'
   code <<-EOH
-    bundle exec rake db:migrate RAILS_ENV=production;
+    bundle exec rake db:migrate;
     sleep 1;
     EOH
 end
@@ -19,7 +19,7 @@ end
 bash 'run_seed' do
   cwd '/srv/www/granbazar/current'
   code <<-EOH
-    bundle exec rake db:seed RAILS_ENV=production;
+    bundle exec rake db:seed;
     sleep 1;
     EOH
 end
@@ -27,7 +27,7 @@ end
 bash 'run_precompile' do
   cwd '/srv/www/granbazar/current'
   code <<-EOH
-    bundle exec rake assets:precompile RAILS_ENV=production;
+    bundle exec rake assets:precompile;
     sleep 1;
     EOH
 end

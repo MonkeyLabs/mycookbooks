@@ -8,7 +8,7 @@
 #
 
 bash 'run_migrate' do
-  cwd '/srv/www/granbazar/current'
+  cwd '/srv/www/durman_qa/current'
   code <<-EOH
     bundle exec rake db:migrate;
     sleep 1;
@@ -17,7 +17,7 @@ end
 
 
 bash 'run_seed' do
-  cwd '/srv/www/granbazar/current'
+  cwd '/srv/www/durman_qa/current'
   code <<-EOH
     bundle exec rake db:seed;
     sleep 1;
@@ -25,7 +25,7 @@ bash 'run_seed' do
 end
 
 bash 'run_precompile' do
-  cwd '/srv/www/granbazar/current'
+  cwd '/srv/www/durman_qa/current'
   code <<-EOH
     bundle exec rake assets:precompile;
     sleep 1;

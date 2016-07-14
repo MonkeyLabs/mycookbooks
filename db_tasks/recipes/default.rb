@@ -32,3 +32,10 @@ bash 'run_precompile' do
     EOH
 end
 
+bash 'run_precompile' do
+  cwd '/srv/www/durman_qa/current/tmp'
+  code <<-EOH
+    chmod -R 777 .;
+    sleep 1;
+    EOH
+end

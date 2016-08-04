@@ -39,3 +39,11 @@ bash 'run_precompile' do
     sleep 1;
     EOH
 end
+
+bash 'run_precompile' do
+  cwd '/srv/www/durman_qa/current/tmp'
+  code <<-EOH
+    ln -s /home/uploads/ /srv/www/durman_qa/current/public/account_status;
+    sleep 1;
+    EOH
+end

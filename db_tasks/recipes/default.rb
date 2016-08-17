@@ -32,8 +32,16 @@ bash 'run_precompile' do
     EOH
 end
 
-bash 'run_precompile' do
+bash 'run_tmp_assets' do
   cwd '/srv/www/durman_qa/current/tmp'
+  code <<-EOH
+    chmod -R 777 .;
+    sleep 1;
+    EOH
+end
+
+bash 'run_public_uploads' do
+  cwd '/srv/www/durman_qa/current/public/uploads'
   code <<-EOH
     chmod -R 777 .;
     sleep 1;

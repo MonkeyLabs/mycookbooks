@@ -40,6 +40,15 @@ bash 'run_tmp_assets' do
     EOH
 end
 
+bash 'run_link_uploads' do
+  cwd '/srv/www/durman_qa/current/tmp'
+  code <<-EOH
+    rm -rd /srv/www/durman_qa/current/public/uploads;
+    ln -s /srv/www/durman_qa/uploads /srv/www/durman_qa/current/public/uploads;
+    sleep 1;
+    EOH
+end
+
 bash 'run_public_uploads' do
   cwd '/srv/www/durman_qa/current/public/uploads'
   code <<-EOH

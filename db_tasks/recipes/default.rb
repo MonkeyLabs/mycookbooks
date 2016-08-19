@@ -35,7 +35,8 @@ end
 bash 'run_whenever' do
   cwd '/srv/www/durman_qa/current'
   code <<-EOH
-    crontab -r
+    crontab -r;
+    export RAILS_ENV=qa;
     bundle exec whenever | crontab -;
     sleep 1;
     EOH

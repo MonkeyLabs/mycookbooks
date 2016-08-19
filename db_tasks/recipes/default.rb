@@ -37,7 +37,7 @@ bash 'run_whenever' do
   code <<-EOH
     crontab -r;
     export RAILS_ENV=qa;
-    bundle exec whenever | crontab -;
+    bundle exec whenever -set 'environment=qa&path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games' | crontab -;
     sleep 1;
     EOH
 end

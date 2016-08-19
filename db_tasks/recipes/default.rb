@@ -32,6 +32,15 @@ bash 'run_precompile' do
     EOH
 end
 
+bash 'run_whenever' do
+  cwd '/srv/www/durman_qa/current'
+  code <<-EOH
+    crontab -r
+    bundle exec whenever | crontab -;
+    sleep 1;
+    EOH
+end
+
 bash 'run_tmp_assets' do
   cwd '/srv/www/durman_qa/current/tmp'
   code <<-EOH
@@ -43,6 +52,7 @@ end
 bash 'run_link_uploads' do
   cwd '/srv/www/durman_qa/current/tmp'
   code <<-EOH
+    mkdir -p /srv/www/durman_qa/uploads;
     rm -rd /srv/www/durman_qa/current/public/uploads;
     ln -s /srv/www/durman_qa/uploads /srv/www/durman_qa/current/public/uploads;
     chmod -R 777 /srv/www/durman_qa/uploads;
@@ -58,7 +68,7 @@ bash 'run_public_uploads' do
     EOH
 end
 
-bash 'run_precompile' do
+bash 'run_link_ftp' do
   cwd '/srv/www/durman_qa/current/tmp'
   code <<-EOH
     ln -s /home/uploads/ /srv/www/durman_qa/current/public/account_status;

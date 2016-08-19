@@ -45,6 +45,7 @@ bash 'run_link_uploads' do
   code <<-EOH
     rm -rd /srv/www/durman_qa/current/public/uploads;
     ln -s /srv/www/durman_qa/uploads /srv/www/durman_qa/current/public/uploads;
+    chmod -R 777 /srv/www/durman_qa/uploads;
     sleep 1;
     EOH
 end

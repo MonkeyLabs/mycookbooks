@@ -16,13 +16,7 @@ bash 'run_migrate' do
 end
 
 
-bash 'run_seed' do
-  cwd '/srv/www/durman_qa/current'
-  code <<-EOH
-    bundle exec rake db:seed;
-    sleep 1;
-    EOH
-end
+
 
 bash 'run_precompile' do
   cwd '/srv/www/durman_qa/current'
@@ -71,6 +65,14 @@ bash 'run_link_ftp' do
   cwd '/srv/www/durman_qa/current/tmp'
   code <<-EOH
     ln -s /home/uploads/ /srv/www/durman_qa/current/public/account_status;
+    sleep 1;
+    EOH
+end
+
+bash 'run_seed' do
+  cwd '/srv/www/durman_qa/current'
+  code <<-EOH
+    bundle exec rake db:seed;
     sleep 1;
     EOH
 end

@@ -27,6 +27,7 @@ end
 bash 'run_whenever' do
   cwd '/srv/www/granbazar/current'
   code <<-EOH
+    crontab -r;
     bundle exec whenever -s 'environment=production' --update-crontab;
     sleep 1;
     EOH

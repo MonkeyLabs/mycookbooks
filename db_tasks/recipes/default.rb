@@ -29,6 +29,7 @@ end
 bash 'run_whenever' do
   cwd '/srv/www/durman_qa/current'
   code <<-EOH
+    crontab -r;
     bundle exec whenever -s 'environment=qa' --update-crontab;
     sleep 1;
     EOH

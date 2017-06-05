@@ -8,7 +8,7 @@
 #
 
 bash 'run_migrate' do
-  cwd node['dol_data']['app']['path']
+  cwd '#{node['dol_data']['app']['path']}'
   code <<-EOH
     bundle exec rake db:migrate;
     sleep 1;

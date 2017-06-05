@@ -8,7 +8,7 @@
 #
 
 bash 'run_migrate' do
-  cwd '#{node['dol_data']['app']['path']}'
+  cwd '/srv/www/granbazar/current'
   code <<-EOH
     bundle exec rake db:migrate;
     sleep 1;
@@ -17,7 +17,7 @@ end
 
 
 bash 'run_precompile' do
-  cwd node[:dol_data][app][path]
+  cwd '/srv/www/granbazar/current'
   code <<-EOH
     bundle exec rake assets:precompile;
     sleep 1;
@@ -25,7 +25,7 @@ bash 'run_precompile' do
 end
 
 bash 'run_whenever' do
-  cwd node[:dol_data][app][path]
+  cwd '/srv/www/granbazar/current'
   code <<-EOH
     crontab -r;
     bundle exec whenever -s 'environment=production' --update-crontab;
@@ -34,7 +34,7 @@ bash 'run_whenever' do
 end
 
 bash 'run_tmp_assets' do
-  cwd (node[:dol_data][app][path])+'/tmp'
+  cwd '/srv/www/granbazar/current'
   code <<-EOH
     chmod -R 777 .;
     sleep 1;
@@ -42,7 +42,7 @@ bash 'run_tmp_assets' do
 end
 
 bash 'run_seed' do
-  cwd node[:dol_data][app][path]
+  cwd '/srv/www/granbazar/current'
   code <<-EOH
     bundle exec rake db:seed;
     sleep 1;

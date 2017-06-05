@@ -34,7 +34,7 @@ bash 'run_whenever' do
 end
 
 bash 'run_tmp_assets' do
-  cwd '/srv/www/granbazar/current'
+  cwd '/srv/www/granbazar/current/tmp'
   code <<-EOH
     chmod -R 777 .;
     sleep 1;

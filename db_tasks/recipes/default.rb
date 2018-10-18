@@ -92,3 +92,86 @@ bash 'run_seed' do
     sleep 1;
     EOH
 end
+
+
+#Cron for the countries
+
+bash 'run_whenever_remove_cron' do
+  cwd '/srv/www/durmanonline_nicaragua/current'
+  code <<-EOH
+    crontab -r;
+    EOH
+end
+
+bash 'run_whenever_cr' do
+  cwd '/srv/www/granbazar/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_nicaragua' do
+  cwd '/srv/www/durmanonline_nicaragua/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_guatemala' do
+  cwd '/srv/www/durmanonline_guatemala/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_panama' do
+  cwd '/srv/www/durmanonline_panama/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_honduras' do
+  cwd '/srv/www/durmanonline_honduras/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_colombia' do
+  cwd '/srv/www/durmanonline_colombia/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_mexico' do
+  cwd '/srv/www/durmanonline_peru/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_mexico' do
+  cwd '/srv/www/durmanonline_mexico/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
+bash 'run_whenever_salvador' do
+  cwd '/srv/www/durman_salvador/current'
+  code <<-EOH
+    bundle exec whenever -s 'environment=production' --update-crontab;
+    sleep 1;
+    EOH
+end
+
